@@ -1,1 +1,5 @@
 wennedy
+
+
+aprendendo a fazer um git !
+fazendo pull e push ! 
