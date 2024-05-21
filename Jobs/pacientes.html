@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacientes</title>
+    <!--Arquivos (css e JS) da pasta Jobs copiados na aula -->
+    <link rel="stylesheet" type="text/css" href="/Jobs/css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="/Jobs/css/estilo-tema-azul.css" id="link-tema"> 
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="/Jobs/img/logo_branco(64).png" alt="Logo do SGCM">
+            <span>SGCM</span>
+            <div class="usuario">
+                <span>Usuário: Administrador</span>
+                <span>Papel: ADMIN</span>
+                <p>Tema:
+                    <span>
+                        <select id="tema">
+                            <option value="">Escolha um tema</option>
+                            <option value="azul">Azul</option>
+                            <option value="vermelho">Vermelho</option>
+                            <option value="amarelo">Amarelo</option>
+                        </select>
+                    </span>
+                </p>
+            </div>
+        </div>
+
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pacientes.html">Pacientes</a></li>
+            <li><a href="atendimento.html">Atendimento</a></li>
+            <li><a href="convenios.html">Convênios</a></li>
+            <li><a href="profissionais.html">Profissionais</a></li>
+            <li><a href="unidades.html">Unidades</a></li>
+            <li><a href="especialidades.html">Especialidades</a></li>
+            <li><a href="usuarios.html">Usuários</a></li>
+        </ul>
+    </nav>
+    <main>
+        <!-- Inicio das alterações -->
+        <!-- Forms não será visto até botão "Adicionar" no JS funcionar -->
+        <form action="" class="inativo"> 
+            <div class="grid">
+                <label for="idPaciente">ID paciente:</label>
+                <input type="number" name="idPaciente" id="idPaciente" required>
+                <!-- <br> -->
+                <label for="nomePaciente">Nome completo:</label>
+                <input type="text" name="nome" id="nomePaciente" required>
+                <!-- <br> -->
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" required>
+                <!-- <br> -->
+                <label for="telefone">Telefone:</label>
+                <input type="tel" name="telefone" id="telefone" required>
+                <!-- <br> -->
+                <label for="dataNascimento">Data de nascimento:</label>
+                <input type="text" name="dataNascimento" id="dataNascimento" required>
+                <!-- <br> -->
+                <label for="grupoSanguineo">Tipo sanguíneo:</label> 
+                <select name="grupoSanguineo" id="grupoSanguineo" required>
+                    <option value=""></option>
+                    <option value="1">A+</option>
+                    <option value="2">A-</option>
+                    <option value="3">B+</option>
+                    <option value="4">B-</option>
+                    <option value="5">AB+</option>
+                    <option value="6">AB-</option>
+                    <option value="7">O+</option>
+                    <option value="8">O-</option>
+                </select>
+                <!-- <br> -->
+                <label for="sexo">Sexo:</label>
+                <input type="text" name="sexo" id="sexo" required>
+                <select name="sexo" id="sexo" required>
+                    <option value=""></option>
+                    <option value="F">Feminino</option>
+                    <option value="M">Masculino</option>
+                    <option value="N">Não declarado</option>
+                </select>
+                <!-- <br> -->
+                <label for="cep">CEP:</label>
+                <input type="text" name="cep" id="cep" required>
+                <!-- <br> -->
+                <label for="endereco">Endereço:</label>
+                <input type="text" name="endereco" id="endereco" required>
+                <!-- <br> -->
+                <label for="cidade">Cidade:</label>
+                <input type="text" name="cidade" id="cidade" required>
+                <!-- <br> -->
+                <label for="estado">Estado</label>
+                <input type="text" name="estado" id="estado" required>
+                <select name="estado" id="estado" required>
+                    <option value=""></option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Serjipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+                <!-- <br> -->
+                <span></span>
+                <input type="submit" value="Enviar" id="azul">
+                <span></span>
+                <input type="button" value="Cancelar" id="vermelho">
+            </div>
+        </form>
+        <!-- Atenção ao início da adição das informações na tabela pelo JS -->
+        <a class="botao" id="add">Adicionar</a>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>ID Paciente</td>
+                    <td>Nome Paciente</td>
+                    <td>E-mail</td>
+                    <td>Telefone</td>
+                    <td>Data de Nascimento</td>
+                    <td>Tipo Sanguíneo</td>
+                    <td>Sexo</td>
+                    <td>CEP</td>
+                    <td>Endereço</td>
+                    <td>Cidade</td>
+                    <td>Estado</td>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="11">Total de registros: </td>
+                </tr>
+            </tfoot>
+        </table>
+    </main>
+    <footer>
+        <div>
+            <span>SGCM - Sistema de Gerenciamento de Clínica Médica |</span>
+            <span>Telefone de contato: (68)3333-3333 |</span>
+            <span>Email de contato: <a href="mailto:suporte.sgcm@ufac.br">suporte.sgcm@ufac.br</a></span>
+        </div>
+    </footer>
+</body>
+
+</html>
