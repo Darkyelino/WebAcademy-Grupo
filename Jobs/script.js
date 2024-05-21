@@ -87,7 +87,7 @@ const carregarProfissionais = () => {
 //         }
 //     });
 //     xhr.send();
-// };
+};
 carregarProfissionais();
 
 //Criar uma função para excluir um profissional
@@ -100,7 +100,7 @@ for (const bt of botoes) {
 };
 };
 
-let botaoAdicionar = document.querySelectorAll('a.botao#add');
+let botaoAdicionar = document.querySelector('a.botao#add');
 let form = document.querySelector('form');
 let botaoCancelar = document.querySelector('input#vermelho');
 

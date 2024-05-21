@@ -64,17 +64,6 @@ input[type="button"]:hover {
     background-color: rgb(102, 21, 21);
 }
 
-.container {
-    text-align: center;
-}
-
-.botao {
-    display: inline-block;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
 /* Nav */
 nav {
     background-color: #383838;
