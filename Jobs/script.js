@@ -37,28 +37,29 @@ carregarProfissionais();
 //Criar uma função para excluir um profissional
 const eventoExcluir = () => {
     let botoes = document.querySelectorAll('a.botao#vermelho');
-    
-for (const bt of botoes) {
-    bt.addEventListener('click', () => {
+    for (const bt of botoes) {
+        bt.addEventListener('click', () => {
         bt.parentNode.parentNode.remove();
         let td_table_footer = document.querySelector('td.total');
-td_table_footer.textContent = "Total de registros: " + tabela.tBodies[0].rows.length;
-});
-};
+        td_table_footer.textContent = "Total de registros: " + tabela.tBodies[0].rows.length
+        });
+    };
 
 };
 
-let botaoAdicionar = document.querySelector('a.botao#add');
+let botaoAdicionar = document.querySelector('a.adicionar');
 let form = document.querySelector('form');
 let botaoCancelar = document.querySelector('input#vermelho');
 
 botaoAdicionar.addEventListener('click', () => {
     form.classList.remove('inativo');
+    botaoAdicionar.classList.add('esconder');
 });
 
 botaoCancelar.addEventListener('click', () => {
     form.classList.add('inativo');
     form.reset();
+    botaoAdicionar.classList.remove('esconder');
 });
 
 // Add um funcionamento para enviar os dados do form paa a tabela.
@@ -80,6 +81,8 @@ form.addEventListener('submit', (evento) => {
     inserirPaciente(paciente);
     form.reset();
     eventoExcluir();
+    botaoAdicionar.classList.remove('esconder'); //funcao para esconder o botao quando solicitar o formulario
+    form.classList.add('inativo'); // tira o formulario
 });
 
 let tabela = document.querySelector('table');
@@ -128,6 +131,10 @@ const inserirPaciente = (item) => {
      linha.appendChild(acoes);
      //preencher a tabela com um linha
      tabela.tBodies[0].appendChild(linha);
+
+     let td_table_footer = document.querySelector('td.total');
+     td_table_footer.textContent = "Total de registros: " + tabela.tBodies[0].rows.length //arantirá que a célula com a classe total mostre o número total de registros presentes
+     
 }
 
 

@@ -30,6 +30,7 @@ div.usuario {
 main {
     background: linear-gradient(#cccccc, #ffffff);
     padding: 16px;
+    height: auto;
 }
 
 /* Links e Botões */
@@ -46,6 +47,24 @@ input[type="button"] {
     padding: 0 0.4em;
     display: inline-block;
     text-decoration: none;
+}
+
+.adicionar{
+    font-size: 14px;
+    color: white;
+    background-color: #2c832d;
+    border-radius: 4px;
+    line-height: 2em;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.adicionar:hover{
+    background-color: #1b531c;
+}
+
+.esconder{
+    display: none;
 }
 
 a.botao:hover,
