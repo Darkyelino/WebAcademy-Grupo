@@ -1,0 +1,5 @@
+[INDIVIDUAL] Alterar a forma como o usuário visualiza o botão Adicionar. (Entrega: 22/05/2024) O botão Adicionar não deve ser visualizado após ser clicado, mas somente quando o usuário clicar nos botões Enviar ou Cancelar.
+
+[INDIVIDUAL] Alterar o rodapé da tabela que mostra o total de profissionais para que seja atualizado conforme a quantidade de profissionais. (Entrega: 22/05/2024) A atualização deve considerar todos os registros.
+
+[INDIVIDUAL] Alterar o comportamento da coluna 'nome' da tabela de profissionais. (Entrega: 22/05/2024) A coluna 'nome' deve ter o mesmo comportamento da coluna Ações.
