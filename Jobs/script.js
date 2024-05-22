@@ -1,18 +1,7 @@
-/* let botao = document.querySelector('a#add');
-botao.addEventListener('click', funcaoA);
-botao.addEventListener('click', funcaoB);
-
-function funcaoA() {
-    alert('A');
-}
-function funcaoB() {
-    alert('B');
-} */
 
 let selectTema = document.querySelector('select#tema');
 selectTema.addEventListener('change', evento => {
     let temaSelecionado = evento.target.value;
-    //console.log(temaSelecionado);
     if (temaSelecionado) {
         mudaTema(temaSelecionado);
         localStorage.setItem('tema', temaSelecionado);
@@ -21,8 +10,7 @@ selectTema.addEventListener('change', evento => {
 
 const mudaTema = (temaSelecionado) => {
     let linkTema = document.querySelector('#link-tema');
-    //console.log(linkTema);
-    let url = "/Jobs/css/estilo-tema-" + temaSelecionado + ".css";
+    let url = "/css/estilo-tema-" + temaSelecionado + ".css";
     linkTema.href = url;
 }
 
@@ -31,9 +19,8 @@ if (tema) {
     mudaTema(tema);
 }
 
-const carregarPaciente = () => {
+const carregarProfissionais = () => {
     let url = "https://my-json-server.typicode.com/juniorlimeiras/json/pacientes";
-    let tabela= document.querySelector('table');
     fetch(url).then(resposta => {
         return resposta.json();
     }).then(dados => {
@@ -42,62 +29,23 @@ const carregarPaciente = () => {
         }
         eventoExcluir();
     }).catch(erro => {
-        console.erro(erro);
-    })
-    
-//     let xhr = new XMLHttpRequest();
-//     xhr.open('GET', url);
-//     let tabela = document.querySelector('table');
-//     xhr.addEventListener('readystatechange', () => {
-//         if (xhr.readyState === 4 && xhr.status === 200) {
-//             dados = JSON.parse(xhr.responseText);
-//             //console.log(dados);
-//             for (const item of dados) {
-//                 //Criando os elementos HTML
-//                 let linha = document.createElement('tr');
-//                 let id = document.createElement('td');
-//                 let nome = document.createElement('td');
-//                 let registroConselho = document.createElement('td');
-//                 let telefone = document.createElement('td');
-//                 let email = document.createElement('td');
-//                 let unidade = document.createElement('td');
-//                 let especialidade = document.createElement('td');
-//                 let acoes = document.createElement('td');
-//                 //Preencher os elementos
-//                 id.textContent = item.id;
-//                 nome.textContent = item.nome;
-//                 registroConselho.textContent = item.registro;
-//                 telefone.textContent = item.telefone;
-//                 email.textContent = item.email;
-//                 unidade.textContent = item.unidade;
-//                 especialidade.textContent = item.especialidade;
-//                 acoes.innerHTML = `<a class="botao">Editar</a> <a id="vermelho" class="botao">Excluir</a>`;
-//                 //Preencher a linha
-//                 linha.appendChild(id);
-//                 linha.append(nome);
-//                 linha.appendChild(registroConselho);
-//                 linha.appendChild(email);
-//                 linha.appendChild(telefone);
-//                 linha.appendChild(unidade);
-//                 linha.appendChild(especialidade);
-//                 linha.appendChild(acoes);
-//                 //Preencher a tabela com uma linha
-//                 tabela.tBodies[0].appendChild(linha);
-//             }
-//         }
-//     });
-//     xhr.send();
+        console.error(erro);
+    });
 };
-carregarPaciente();
+carregarProfissionais();
 
 //Criar uma função para excluir um profissional
 const eventoExcluir = () => {
     let botoes = document.querySelectorAll('a.botao#vermelho');
+    
 for (const bt of botoes) {
-    botaoExcluir.addEventListener('click', () => {
+    bt.addEventListener('click', () => {
         bt.parentNode.parentNode.remove();
+        let td_table_footer = document.querySelector('td.total');
+td_table_footer.textContent = "Total de registros: " + tabela.tBodies[0].rows.length;
 });
 };
+
 };
 
 let botaoAdicionar = document.querySelector('a.botao#add');
@@ -108,62 +56,78 @@ botaoAdicionar.addEventListener('click', () => {
     form.classList.remove('inativo');
 });
 
-botaoCancelar.addEventListener('Click', () => {
+botaoCancelar.addEventListener('click', () => {
     form.classList.add('inativo');
     form.reset();
 });
-let tabela = document.querySelector('table');
-//Add um funcionamento para enviar os dados do form paa a tabela.
+
+// Add um funcionamento para enviar os dados do form paa a tabela.
 form.addEventListener('submit', (evento) => {
     evento.preventDefault(); //Evita que a página seja carregada
     let paciente = {
         id: tabela.tBodies[0].rows.length + 1,
-        nome: form.nome.value,
+        nome: form.nomePaciente.value,
         email: form.email.value,
         telefone: form.telefone.value,
-        dataNascimento: form.dataNascimento.value,
-        grupoSanguineo: form.tipo.options[form.grupoSanguineo.selectedIndex].label,
+        data_nascimento: form.dataNascimento.value,
+        grupo_sanguineo: form.grupoSanguineo.options[form.grupoSanguineo.selectedIndex].label,
         sexo: form.sexo.options[form.sexo.selectedIndex].label,
         cep: form.cep.value,
         endereco: form.endereco.value,
         cidade: form.cidade.value,
-        estado: form.estado.options[form.estado.selectedIndex].label,
+        estado: form.estado.options[form.estado.selectedIndex].label
     };
     inserirPaciente(paciente);
+    form.reset();
+    eventoExcluir();
 });
 
+let tabela = document.querySelector('table');
 //Função insere um objeto profissional na tabela html
-const inserirProfissional = (item) => {
+const inserirPaciente = (item) => {
      //criando os elementos html
      let linha = document.createElement('tr');
      let id = document.createElement('td');
      let nome = document.createElement('td');
-     let registroConselho = document.createElement('td');
+     let cep = document.createElement('td');
      let telefone = document.createElement('td');
      let email = document.createElement('td');
-     let unidade = document.createElement('td');
-     let especialidade = document.createElement('td');
+     let data_nascimento = document.createElement('td');
+     let sexo = document.createElement('td');
+     let endereco = document.createElement('td');
+     let cidade = document.createElement('td');
+     let estado = document.createElement('td');
+     let grupo_sanguineo = document.createElement('td');
      let acoes = document.createElement('td');
      //preenchendo os elementos
      id.textContent = item.id;
-     nome.textContent = item.nome;
-     registroConselho.textContent = item.registroConselho;
-     telefone.textContent = item.telefone;
-     email.textContent = item.email;
-     unidade.textContent = item.unidade;
-     especialidade.textContent = item.especialidade;
+     cep.textContent = item.cep;
+     cidade.textContent = item.cidade;
+     data_nascimento.textContent = item.data_nascimento;
+     email.textContent  = item.email;
+     endereco.textContent  = item.endereco;
+     estado.textContent  = item.estado;
+     grupo_sanguineo.textContent  = item.grupo_sanguineo;
+     nome.textContent  = item.nome;
+     sexo.textContent  = item.sexo;
+     telefone.textContent  = item.telefone;
      acoes.innerHTML = `<a class="botao" href="javascript:void(0)">Editar</a> <a id="vermelho" class="botao"
      href="javascript:void(0)">Excluir</a>`;
      //preencher a linha
      linha.appendChild(id);
-     linha.append(nome);
-     linha.appendChild(registro);
-     linha.appendChild(telefone);
+     linha.appendChild(nome);
      linha.appendChild(email);
-     linha.appendChild(unidade);
-     linha.appendChild(especialidade);
+     linha.appendChild(telefone);
+     linha.appendChild(data_nascimento);
+     linha.appendChild(grupo_sanguineo)
+     linha.appendChild(sexo);
+     linha.appendChild(cep);
+     linha.appendChild(endereco);
+     linha.appendChild(cidade);
+     linha.appendChild(estado);
      linha.appendChild(acoes);
      //preencher a tabela com um linha
      tabela.tBodies[0].appendChild(linha);
 }
+
 
