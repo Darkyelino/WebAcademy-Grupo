@@ -31,14 +31,14 @@ if (tema) {
     mudaTema(tema);
 }
 
-const carregarProfissionais = () => {
+const carregarPaciente = () => {
     let url = "https://my-json-server.typicode.com/juniorlimeiras/json/profissionais";
     let tabela= document.querySelector('table');
     fetch(url).then(resposta => {
         return resposta.json();
     }).then(dados => {
         for (const item of dados) {
-            inserirProfissional(item);
+            inserirPaciente(item);
         }
         eventoExcluir();
     }).catch(erro => {
@@ -88,7 +88,7 @@ const carregarProfissionais = () => {
 //     });
 //     xhr.send();
 };
-carregarProfissionais();
+carregarPaciente();
 
 //Criar uma função para excluir um profissional
 const eventoExcluir = () => {
@@ -116,16 +116,20 @@ let tabela = document.querySelector('table');
 //Add um funcionamento para enviar os dados do form paa a tabela.
 form.addEventListener('submit', (evento) => {
     evento.preventDefault(); //Evita que a página seja carregada
-    let profissionais = {
+    let paciente = {
         id: tabela.tBodies[0].rows.length + 1,
         nome: form.nome.value,
-        registroConselho: form.registro.value,
-        telefone: form.telefone.value,
         email: form.email.value,
-        unidade: form.unidade.options[form.unidade.selectedIndex].label,
-        especialidade: form.especialidade.options[form.especialidade.selectedIndex].label
+        telefone: form.telefone.value,
+        dataNascimento: form.dataNascimento.value,
+        grupoSanguineo: form.tipo.options[form.grupoSanguineo.selectedIndex].label,
+        sexo: form.sexo.options[form.sexo.selectedIndex].label,
+        cep: form.cep.value,
+        endereco: form.endereco.value,
+        cidade: form.cidade.value,
+        estado: form.estado.options[form.estado.selectedIndex].label,
     };
-    inserirProfissional(profissional);
+    inserirPaciente(paciente);
 });
 
 //Função insere um objeto profissional na tabela html
