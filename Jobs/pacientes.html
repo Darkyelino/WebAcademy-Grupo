@@ -51,8 +51,6 @@
         <!-- Forms não será visto até botão "Adicionar" no JS funcionar -->
         <form action="" class="inativo"> 
             <div class="grid">
-                <label for="idPaciente">ID paciente</label>
-                <input type="number" name="idPaciente" id="idPaciente" required>
                 <!-- <br> -->
                 <label for="nomePaciente">Nome completo</label>
                 <input type="text" name="nome" id="nomePaciente" required>
@@ -152,11 +150,15 @@
                     <td>Endereço</td>
                     <td>Cidade</td>
                     <td>Estado</td>
+                    <td>Ações</td>
                 </tr>
             </thead>
+            <tbody>
+
+            </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="11">Total de registros: </td>
+                    <td colspan="12" class="total"></td>
                 </tr>
             </tfoot>
         </table>
