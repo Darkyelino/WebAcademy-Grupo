@@ -1,0 +1,227 @@
+* {
+    margin: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 98vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*cabeçalho*/
+header {
+    background: linear-gradient(#003366, #006699);
+    font-size: 1em;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.logo {
+    text-align: center;
+    display: grid;
+    align-content: center;
+}
+
+.logo, .usuario, #tema_nome {
+    color: white;
+    font-weight: bold;
+    width: auto;
+}
+
+#info {
+    display: grid;
+    align-content: end;
+}
+
+.usuario {
+    font-size: 14px;
+    padding: 10px 0px 0px 10px;
+}
+
+#tema_nome {
+    display: flex;
+    padding: 10px 0px 0px 10px;
+}
+
+/* << */
+
+/* menu */
+nav {
+    background-color: #383838;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    margin: 0;
+}
+
+nav ul {
+    padding: 0;
+}
+
+nav ul li,
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+}
+
+@media screen and (min-width: 200px) and (max-width: 840px) {
+    nav ul {
+        display: block;
+    }
+
+    nav ul li a {
+        width: 100%;
+    }
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    background-color: #cccccc;
+    color: #383838;
+}
+
+
+/* Cropo */
+main {
+    background: linear-gradient(#cccccc, #ffffff);
+    padding: 16px;
+    width: auto;
+}
+
+.adicionar {
+    display: block;
+    width: 100px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 10px;
+}
+/* esconde botao adicionar */
+.esconder{
+    display: none; /* << */
+}
+
+/* formulario */
+form label::after {
+    content: ":";
+}
+
+form {
+    width: 100%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 3fr;
+    gap: 0.8em;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.inativo{
+    display: none;
+}
+
+input, select {
+    border-radius: 3px;
+    border: 1px solid black;
+}
+
+.enviar, .cancelar, .adicionar {
+    background-color: #2c832d;
+    color: white;
+    border-radius: 5px;
+    padding: 0.5em;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+}
+/* << */
+
+/* Tabela */
+.table-container {
+    width: 100%;
+    max-height: 73.1vh;
+    min-height: 73.1vh;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+table {
+    margin: auto;
+    width: 95%;
+    text-align: center;
+    font-weight: bold;
+}
+
+td {
+    padding: 5px;
+}
+
+thead, tfoot{
+    background-color: #003366;
+    color: white;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #639ddf;
+}
+tbody tr:nth-child(even) {
+    background-color: #639ddf8f;
+}
+
+tbody tr:hover {
+    background-color: #639ddfcc;
+}
+
+table td:nth-child(2) { /* [INDIVIDUAL] Alterar o comportamento da coluna 'nome' da tabela de profissionais. (Entrega: 22/05/2024) A coluna 'nome' deve ter o mesmo comportamento da coluna Ações. */
+    white-space: nowrap; 
+}
+
+table td:last-child {
+    white-space: nowrap;
+}
+
+.editar, .excluir {
+    background-color: #2c832d;
+    color: white;
+    border-radius: 5px;
+    line-height: 2em;
+    padding: 0.5em;
+    text-decoration: none;
+}
+
+/* Aqui se aproveita parte do codigo para para o botão enviar e cancelar do formulario */
+.editar:hover, .enviar:hover, .adicionar:hover {
+    background-color: #1b531c;
+}
+
+.excluir, .cancelar {
+    background-color: rgb(207, 0, 0);
+}
+
+.excluir:hover, .cancelar:hover {
+    background-color: rgb(160, 18, 18);
+}
+
+/* parei aqui */
+footer, footer a {
+    background-color: #003366;
+    color: #ffffff;
+    text-align: center;
+    padding: 3px;
+    font-weight: bold;
+}
