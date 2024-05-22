@@ -32,7 +32,7 @@ if (tema) {
 }
 
 const carregarPaciente = () => {
-    let url = "https://my-json-server.typicode.com/juniorlimeiras/json/profissionais";
+    let url = "https://my-json-server.typicode.com/juniorlimeiras/json/pacientes";
     let tabela= document.querySelector('table');
     fetch(url).then(resposta => {
         return resposta.json();
