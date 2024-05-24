@@ -1,5 +1,5 @@
 
-// # Navegar até o diretório do arquivo fonte - vscode nao estava gerando o .class
+// # Navegar até o diretório do arquivo fonte
 // cd C:\Users\igor_\Desktop\novo\WebAcademy-1
 // # Compilar o arquivo Java
 // javac ArraysDinamicos.java
